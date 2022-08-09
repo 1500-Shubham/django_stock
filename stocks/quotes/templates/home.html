@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+</br>
+
+
+<br>
+</br>
+
+{% if ticker %}
+	<h2>{{ ticker }}</h2>
+{% else %}
+	{% if api == "Error" %}
+		<h4>Please Enter Correct Company Symbol</h4></br>
+		<hi>For example: aapl, csco, goog, fb, etc.
+	{% else %}
+	<table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
+    <tr>
+      <th scope="col">Company Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Market Cap</th>
+      <th scope="col">PE Ratio</th>
+      <th scope="col">52 Week High</th>
+      <th scope="col">52 Week Low:</th>
+   
+      
+
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+
+  	
+  	
+  	<tr>
+      <th scope="row">{{api.companyName}}</th>
+      
+      <td>${{api.latestPrice}}</td>
+      <td>${{api.marketCap}}</td>
+      <td>{{api.peRatio}}</td>
+      <td>${{api.week52High}}</td>
+      <td>${{api.week52Low}}</td>
+      
+     
+    </tr>
+
+{% endif %}
+
+  </tbody>
+</table>
+
+{% endif %}
+
+
+
+
+</br>
+{% endblock %}
+
+
+
